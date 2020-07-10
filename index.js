@@ -38,7 +38,7 @@ app.get(
                     title: it.title,
                     id: `https://devstu.co.kr/howto/question/${it._id}`,
                     url: `https://devstu.co.kr/howto/question/${it._id}`,
-                    pubDate: it.date,
+                    date_published: it.date,
                 };
             });
             const jsonfeedToRSS = require("jsonfeed-to-rss");
