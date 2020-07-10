@@ -1,15 +1,24 @@
 {
-  "name": "hello-world",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "ejs": "^3.0.1",
-    "express": "^4.17.1"
-  }
+    "name": "hello-world",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "babel server --out-dir build && ./node_modules/.bin/webpack",
+        "start": "NODE_ENV=production node ./build/main.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.19.2",
+        "js2xmlparser": "^4.0.1",
+        "jsonfeed-to-rss": "^3.0.3",
+        "xml": "^1.0.1",
+        "ejs": "^3.0.1",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "pkg": "^4.4.9"
+    }
 }
