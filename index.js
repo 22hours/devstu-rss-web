@@ -57,6 +57,11 @@ app.get(
             });
             const jsonfeedToRSS = require("jsonfeed-to-rss");
             total = item2.concat(item);
+
+            total.sort(function (a, b) {
+                return a.date_published > b.date_published ? -1 : a.date_published < b.date_published ? 1 : 0;
+            });
+
             var lastBuildDate = new Date();
             var testJSON = {
                 version: "https://jsonfeed.org/version/1",
@@ -75,6 +80,18 @@ app.get(
         } else {
             res.render("hello", { name: req.query.nameQuery });
         }
+    })
+);
+
+//라우팅 핸들러
+app.get(
+    "/proxy/user-avatar",
+    doAsync(async (req, res) => {
+        var url = req.query.url;
+
+        var item = null;
+        var data = await GET("get", url);
+        res.send(data);
     })
 );
 
